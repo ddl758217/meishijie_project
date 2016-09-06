@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 import ddl.dalong.com.meishijie_project.MainActivity;
 import ddl.dalong.com.meishijie_project.R;
 
-public class GuideActivity extends AppCompatActivity implements View.OnClickListener{
+public class GuideActivity extends AppCompatActivity {
     private Context mContext;
     private List<Integer> datas = new ArrayList<>();
 
@@ -38,25 +38,17 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void setupViewPager() {
-//        initData();
+//      initData();
         datas.add(R.drawable.frist);
         datas.add(R.drawable.second);
         datas.add(R.drawable.thread);
         myPagerAdapter = new MyPagerAdapter();
         mViewPager.setAdapter(myPagerAdapter);
-        myPagerAdapter.notifyDataSetChanged();
+//        myPagerAdapter.notifyDataSetChanged();
+
     }
 
-//    private void initData() {
-//
-//
-//    }
 
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(GuideActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
 
     class MyPagerAdapter extends PagerAdapter{
 
@@ -76,8 +68,17 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
             ImageView mImageView = (ImageView) view.findViewById(R.id.iv_item_banner);
             mImageView.setBackgroundResource(datas.get(position));
             mImageView.setTag(position);
-            container.addView(mImageView);
-            return mImageView;
+            if(position==2){
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            container.addView(view);
+            return view;
         }
 
         @Override
@@ -85,5 +86,4 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
            container.removeView((View) object);
         }
     }
-
 }

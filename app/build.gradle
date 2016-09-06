@@ -34,4 +34,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:support-v4:24.1.1'
     compile project(':DDL_imageloader')
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
 }

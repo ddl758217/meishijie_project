@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         activityList.add(this);
         initSharedPreference();
-        if(isFirstTime()) {
+        if(true) {
             SharedPreferences.Editor edit = mSharedPreferences.edit();
             edit.putString("flag","false");
             edit.apply();

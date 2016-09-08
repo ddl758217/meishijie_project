@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="40dp"
+              android:layout_height="80dp">
+    <ImageView
+        android:id="@+id/iv_recyleview_icon"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/about_bg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    <TextView
+        android:gravity="center|bottom"
+        android:id="@+id/tv_recyleview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:text="排行榜"
+        android:layout_below="@+id/iv_recyleview_icon"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

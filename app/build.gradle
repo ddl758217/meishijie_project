@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "ddl.dalong.com.meishijie_project"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -25,15 +25,17 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile project(':okhttplibrary')
-    compile project(':refreshlibrary')
     compile project(':vitamio')
+    compile project(':DDL_imageloader')
+    compile project(':meishilibrary')
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:support-v4:24.1.1'
-    compile project(':DDL_imageloader')
     compile 'de.hdodenhof:circleimageview:2.1.0'
-
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support:cardview-v7:24.1.1'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
 }

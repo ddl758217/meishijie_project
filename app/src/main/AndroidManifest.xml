@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="ddl.dalong.com.meishijie_project">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -18,6 +20,12 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".ui.GuideActivity">
+        </activity>
+        <activity android:name=".ui.LoginActivity">
+        </activity>
+        <activity android:name=".ui.WebActivity">
+        </activity>
+        <activity android:name=".ui.BinnerDetailsActivity">
         </activity>
     </application>
 

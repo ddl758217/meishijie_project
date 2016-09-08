@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ddl.dalong.com.meishijie_project.ui.WebActivity">
+
+    <RelativeLayout
+        android:id="@+id/detail_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp">
+
+        <ImageButton
+            android:id="@+id/detail_back_ib"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_closed_red" />
+
+        <ImageButton
+            android:id="@+id/ib_back_web"
+            android:layout_toLeftOf="@+id/ib_forward_wb"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/webview_back" />
+        <ImageButton
+            android:id="@+id/ib_forward_wb"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:layout_toLeftOf="@+id/ib_refresh_web"
+            android:src="@drawable/webview_forward" />
+
+
+        <ImageButton
+            android:id="@+id/ib_refresh_web"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/webview_refresh"
+            />
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_below="@+id/detail_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

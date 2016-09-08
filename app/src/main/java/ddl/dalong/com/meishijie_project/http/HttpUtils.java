@@ -13,7 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpUtils {
 
     public static final String BASE_URL="http://capi.douyucdn.cn";
-
     public static HttpService mHttpService;
     public static HttpService create(){
         if(mHttpService==null){
@@ -25,5 +24,4 @@ public class HttpUtils {
         }
         return mHttpService;
     }
-
 }

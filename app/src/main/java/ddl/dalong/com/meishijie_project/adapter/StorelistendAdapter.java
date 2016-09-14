@@ -1,6 +1,7 @@
 package ddl.dalong.com.meishijie_project.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ddl.dalong.com.meishijie_project.R;
 import ddl.dalong.com.meishijie_project.bean.StoreBean;
+import ddl.dalong.com.meishijie_project.ui.GradviewdetailActivity;
 
 /**
  * Created by Administrator on 2016/9/8.
@@ -61,6 +63,14 @@ public class StorelistendAdapter extends BaseAdapter{
         holder.mTextView_title.setText(end_lists.get(position).getTitle());
         holder.mTextView_price.setText("￥"+end_lists.get(position).getPrice());
         holder.mTextView_market_price.setText(end_lists.get(position).getMarket_price());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, GradviewdetailActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
         return view;
     }
 

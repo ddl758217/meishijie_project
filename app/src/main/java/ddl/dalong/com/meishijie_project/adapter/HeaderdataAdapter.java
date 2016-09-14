@@ -1,6 +1,8 @@
 package ddl.dalong.com.meishijie_project.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,18 +22,24 @@ import butterknife.ButterKnife;
 import ddl.dalong.com.meishijie_project.R;
 import ddl.dalong.com.meishijie_project.bean.StoreBean;
 import ddl.dalong.com.meishijie_project.contans.Contans;
+import ddl.dalong.com.meishijie_project.ui.TopdetailObjActivity;
 
 /**
  * Created by Administrator on 2016/9/8.
  */
 public class HeaderdataAdapter extends RecyclerView.Adapter<MyDatasViewHolder>{
+
+    private final SharedPreferences mSharedPreferences;
     private Context mContext;
     private List<StoreBean.AdTopBean.DataBean> Datas;
 
     public HeaderdataAdapter(Context mContext, List<StoreBean.AdTopBean.DataBean> datas) {
         this.mContext = mContext;
         Datas = datas;
+         mSharedPreferences = mContext.getSharedPreferences("loginUser", Context.MODE_PRIVATE);
     }
+
+
 
     @Override
     public MyDatasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -55,9 +63,37 @@ public class HeaderdataAdapter extends RecyclerView.Adapter<MyDatasViewHolder>{
                 holder.mTextView_title.setText(Datas.get(position).getTitle());
                 holder.mTextView_price.setText("￥"+Datas.get(position).getMarket_price());
                 holder.mTextView_store.setText("剩余 "+Datas.get(position).getTotal_store()+ "件");
+
+                initListener(holder,position);
+
             }
         });
     }
+
+    private void initListener(final MyDatasViewHolder holder, final int position) {
+        holder.imageView_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext.getApplicationContext(), TopdetailObjActivity.class);
+                String goodsSource = Datas.get(position).getGoodsSource();
+                String id = Datas.get(position).getId();
+                intent.putExtra("goodsSource",goodsSource);
+                intent.putExtra("id",id);
+                mContext.startActivity(intent);
+
+
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putString("id",id );
+                editor.putString("goodsSource",goodsSource);
+                editor.commit();
+
+            }
+        });
+    }
+
+
+
+
     @Override
     public int getItemCount() {
         return 3;

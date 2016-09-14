@@ -25,6 +25,8 @@ public class MineAdapter extends BaseAdapter{
     private Context mContext;
     private List<MineBean.ObjBean> datas;
 
+
+
     public MineAdapter(Context mContext, List<MineBean.ObjBean> datas) {
         this.mContext = mContext;
         this.datas = datas;
@@ -65,6 +67,7 @@ public class MineAdapter extends BaseAdapter{
         holder.tv_desc.setText(datas.get(position).getDesc());
         return view;
     }
+
 
   class ViewHolder{
       @BindView(R.id.iv_mine_softs_icon)

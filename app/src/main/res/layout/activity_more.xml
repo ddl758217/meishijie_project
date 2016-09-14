@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ddl.dalong.com.meishijie_project.ui.MoreActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/detail_more_rl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp">
+
+        <ImageButton
+            android:id="@+id/detail__more_back_ib"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_closed_red" />
+
+        <TextView
+            android:id="@+id/tv_more_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:text="为您优先好物"/>
+    </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:layout_below="@+id/detail_more_rl"
+        android:id="@+id/tablayout_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v4.view.ViewPager
+        android:layout_below="@+id/tablayout_more"
+        android:id="@+id/viewPager_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

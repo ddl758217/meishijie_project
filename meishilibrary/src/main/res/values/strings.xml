@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MeiShiLibrary</string>
+    <string name="refresh_top_tv_1">下拉刷新</string>
+    <string name="refresh_top_tv_2">松开刷新数据</string>
+    <string name="refresh_top_tv_3">正在加载...</string>
+    <string name="last_refresh">上次更新:</string>
+</resources>

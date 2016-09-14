@@ -10,8 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DDL_imageloader" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/meishilibrary" />
             <option value="$PROJECT_DIR$/okhttplibrary" />
-            <option value="$PROJECT_DIR$/refreshlibrary" />
             <option value="$PROJECT_DIR$/vitamio" />
           </set>
         </option>
@@ -20,8 +20,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DDL_imageloader" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/meishilibrary" />
             <option value="$PROJECT_DIR$/okhttplibrary" />
-            <option value="$PROJECT_DIR$/refreshlibrary" />
             <option value="$PROJECT_DIR$/vitamio" />
           </set>
         </option>

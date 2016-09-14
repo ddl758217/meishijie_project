@@ -1,6 +1,7 @@
 package ddl.dalong.com.meishijie_project.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import butterknife.ButterKnife;
 import ddl.dalong.com.meishijie_project.R;
 import ddl.dalong.com.meishijie_project.bean.StoreBean;
 import ddl.dalong.com.meishijie_project.contans.Contans;
+import ddl.dalong.com.meishijie_project.ui.HeadItemRecyleViewActivity;
 
 /**
  * Created by Administrator on 2016/9/7.
@@ -55,6 +57,29 @@ public class HeadRVAdapter extends RecyclerView.Adapter<MyViewHolder>{
                 holder.imageView_icon.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
                 holder.mTextView_name.setText(CategoryInfos.get(position).getName());
+
+
+                initListener(holder,position);
+            }
+        });
+    }
+
+    //json&source=android&page=1&cid2=0&goodSource=6,1&cid1=1
+    String[] titles = {"烘焙","食材","厨具","粮油","厨电","全部"};
+    private void initListener(MyViewHolder holder,final int position) {
+        holder.imageView_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext.getApplicationContext(), HeadItemRecyleViewActivity.class);
+                String cid1 = CategoryInfos.get(position).getCid1();
+                String goodsSource = CategoryInfos.get(position).getGoodsSource();
+                String cid2 = CategoryInfos.get(position).getCid2();
+                String title = titles[position];
+                intent.putExtra("cid1",cid1);
+                intent.putExtra("goodsSource",goodsSource);
+                intent.putExtra("cid2",cid2);
+                intent.putExtra("title",title);
+                mContext.startActivity(intent);
             }
         });
     }
@@ -73,12 +98,5 @@ class MyViewHolder extends RecyclerView.ViewHolder {
     public MyViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this,itemView);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
     }
 }

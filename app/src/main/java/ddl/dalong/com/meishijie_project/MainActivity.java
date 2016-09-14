@@ -1,10 +1,15 @@
 package ddl.dalong.com.meishijie_project;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 
 import java.util.ArrayList;
@@ -17,8 +22,10 @@ import ddl.dalong.com.meishijie_project.fragment.MineFragment;
 import ddl.dalong.com.meishijie_project.fragment.RecommendFragment;
 import ddl.dalong.com.meishijie_project.fragment.ShihuaFragment;
 import ddl.dalong.com.meishijie_project.fragment.StoreFragment;
+import ddl.dalong.com.meishijie_project.ui.SplashActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
 
     private FragmentManager fragmentManager;
     private List<Fragment> fragmentList = new ArrayList<>();
@@ -31,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
     private ShihuaFragment shihuaFragment;
     private MineFragment mineFragment;
     private Fragment curFragment;
+    private AlertDialog.Builder builder;
+    private AlertDialog isExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        SplashActivity.activityList.add(this);
          fragmentManager = getSupportFragmentManager();
          initFragment();
          initListener();
@@ -99,4 +109,60 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
         curFragment = fragment;
     }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            // 创建退出对话框
+         builder = new AlertDialog.Builder(this);
+            View view = LayoutInflater.from(this).inflate(R.layout.dialog_layout, null, false);
+            builder.setView(view);
+            Button btn_quding = (Button) view.findViewById(R.id.btn_queding);
+            Button btn_quxiao = (Button) view.findViewById(R.id.btn_quxiao);
+            isExit = builder.create();
+            btn_quding.setOnClickListener(this);
+            btn_quxiao.setOnClickListener(this);
+//            // 设置对话框标题
+//            isExit.setTitle("系统提示");
+//            // 设置对话框消息
+//            isExit.setMessage("确定要退出美食杰吗");
+//
+//            // 添加选择按钮并注册监听
+//            isExit.setButton(DialogInterface.BUTTON_POSITIVE,"确定",listener);
+//            isExit.setButton(DialogInterface.BUTTON_NEGATIVE,"取消", listener);
+            // 显示对话框
+            isExit.show();
+        }
+        return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_queding:
+                for(int i = 0; i< SplashActivity.activityList.size(); i++){
+                        SplashActivity.activityList.get(i).finish();
+                    }
+                    SplashActivity.activityList.clear();
+                break;
+            case R.id.btn_quxiao:
+                isExit.dismiss();
+                break;
+        }
+    }
+
+//    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialogInterface, int which) {
+//            switch (which){
+//                case AlertDialog.BUTTON_POSITIVE:
+//                    for(int i = 0; i< SplashActivity.activityList.size(); i++){
+//                        SplashActivity.activityList.get(i).finish();
+//                    }
+//                    SplashActivity.activityList.clear();
+//            }
+//        }
+//    };
+
 }

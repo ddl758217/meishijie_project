@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.androidxx.yangjw.httplibrary.IOKCallBack;
 import com.androidxx.yangjw.httplibrary.OkHttpTool;
@@ -35,6 +37,7 @@ import ddl.dalong.com.meishijie_project.adapter.StorelistendAdapter;
 import ddl.dalong.com.meishijie_project.bean.StoreBean;
 import ddl.dalong.com.meishijie_project.contans.Contans;
 import ddl.dalong.com.meishijie_project.ui.BinnerDetailsActivity;
+import ddl.dalong.com.meishijie_project.ui.MoreActivity;
 
 /**
  * 商城Fragment
@@ -126,6 +129,13 @@ public class StoreFragment extends Fragment implements MeiShiListViewCallBack {
         headerViewHolder.mRecyclerView.setLayoutManager(linearLayoutManager);
         headerdataAdapter = new HeaderdataAdapter(mContext,Datas);
         headerViewHolder.mRecyclerView.setAdapter(headerdataAdapter);
+        headerViewHolder.tv_genduo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, MoreActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     private void setuprecyclerView(HeaderViewHolder headerViewHolder) {
@@ -187,16 +197,19 @@ public class StoreFragment extends Fragment implements MeiShiListViewCallBack {
          storeAdapter = new StoreAdapter(mContext,ZcBeans);
          initData();
     }
-
+private String TAG = "ddl";
     private void initData() {
         /**
+         *
          * 下载列表图片处理
+         *
          */
         OkHttpTool.newInstance().start(Contans.STORE_SHOPPING).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
                 Gson gson = new Gson();
                 StoreBean storeBean = gson.fromJson(result, StoreBean.class);
+                Log.i(TAG, "success: "+storeBean.getZc().size());
                 ZcBeans.addAll(storeBean.getZc());
                 storeAdapter.notifyDataSetChanged();
             }
@@ -250,6 +263,8 @@ public class StoreFragment extends Fragment implements MeiShiListViewCallBack {
 
     //头部的VieHolder复用
   class HeaderViewHolder {
+        @BindView(R.id.tv_gengduode)
+        TextView tv_genduo;
         @BindView(R.id.recycle_data)
         RecyclerView mRecyclerView;
         @BindView(R.id.cb_header_store_view)

@@ -27,6 +27,20 @@
         </activity>
         <activity android:name=".ui.BinnerDetailsActivity">
         </activity>
+        <activity android:name=".ui.HeadItemRecyleViewActivity">
+        </activity>
+        <activity android:name=".ui.TopdetailObjActivity">
+        </activity>
+        <activity android:name=".ui.TopDatailsActivity">
+        </activity>
+        <activity android:name=".ui.WebBuyerActivity">
+        </activity>
+        <activity android:name=".ui.GradviewdetailActivity">
+        </activity>
+        <activity android:name=".ui.SearchActivity">
+        </activity>
+        <activity android:name=".ui.MoreActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -53,6 +53,7 @@
                 android:padding="2dp"
                 android:src="@drawable/go_red"/>
             <TextView
+                android:id="@+id/tv_gengduode"
                 android:layout_toLeftOf="@+id/iv_category_jiantou"
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"

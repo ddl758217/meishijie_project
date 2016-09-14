@@ -24,14 +24,12 @@
             android:textStyle="bold"
             android:text="值得买"/>
 
-
-
     </RelativeLayout>
     <GridView
         android:id="@+id/gv_end_list"
         android:layout_below="@+id/rl_toolbar_yyy"
         android:layout_width="match_parent"
-        android:layout_height="2200dp"
+        android:layout_height="3200dp"
         android:layout_gravity="center"
         android:background="#ccece6e6"
         android:numColumns="2"

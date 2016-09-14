@@ -1,1 +1,1 @@
-include ':app', ':vitamio', ':okhttplibrary', ':DDL_imageloader', ':refreshlibrary'
+include ':app', ':vitamio', ':okhttplibrary', ':DDL_imageloader', ':meishilibrary'

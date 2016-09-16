@@ -36,7 +36,7 @@ public class HeaderdataAdapter extends RecyclerView.Adapter<MyDatasViewHolder>{
     public HeaderdataAdapter(Context mContext, List<StoreBean.AdTopBean.DataBean> datas) {
         this.mContext = mContext;
         Datas = datas;
-         mSharedPreferences = mContext.getSharedPreferences("loginUser", Context.MODE_PRIVATE);
+       mSharedPreferences = mContext.getSharedPreferences("loginUser", Context.MODE_PRIVATE);
     }
 
 

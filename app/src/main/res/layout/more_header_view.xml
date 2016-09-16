@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="350dp">
+
+    <ImageView
+        android:id="@+id/iv_more_posto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"/>
+        <RelativeLayout
+            android:layout_below="@id/iv_more_posto"
+            android:layout_width="match_parent"
+            android:background="#D2E4F1"
+            android:layout_height="30dp">
+        <TextView
+            android:id="@+id/tv_title_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text=""/>
+        <TextView
+            android:id="@+id/tv_timesKK_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/xiazai_shape"/>
+        <TextView
+            android:id="@+id/tv_des_jieshu"
+            android:layout_toLeftOf="@id/tv_timesKK_more"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xiazai_shape"
+            android:text="已结束"/>
+
+
+        </RelativeLayout>
+
+
+
+</RelativeLayout>

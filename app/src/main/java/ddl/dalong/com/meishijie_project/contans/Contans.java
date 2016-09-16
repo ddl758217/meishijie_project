@@ -28,4 +28,7 @@ public class Contans {
 //    http://api.meishi.cc/v5/flashsale_location.php?format=json&time=1&page=1
 //        String url = TAB_SHOPP+TIME+"1"+PAGER+"1";
 
+    public static final String STORE_DETAIL = "http://api.meishi.cc/v5/goods_detail3.php?format=json";
+
+
 }

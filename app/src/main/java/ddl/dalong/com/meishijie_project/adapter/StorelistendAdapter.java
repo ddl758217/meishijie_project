@@ -47,7 +47,7 @@ public class StorelistendAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         ViewHolder holder = null;
         if(view==null){
@@ -68,6 +68,10 @@ public class StorelistendAdapter extends BaseAdapter{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, GradviewdetailActivity.class);
+                String goodsSource = end_lists.get(position).getGoodsSource();
+                String i = end_lists.get(position).getId();
+                intent.putExtra("goodsSource",goodsSource);
+                intent.putExtra("i","i");
                 mContext.startActivity(intent);
             }
         });

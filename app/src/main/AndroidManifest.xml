@@ -41,6 +41,10 @@
         </activity>
         <activity android:name=".ui.MoreActivity">
         </activity>
+        <activity android:name=".ui.MoreTopDetailsActivity">
+        </activity>
+        <activity android:name=".ui.MoreDetailActivity">
+        </activity>
     </application>
 
 </manifest>
